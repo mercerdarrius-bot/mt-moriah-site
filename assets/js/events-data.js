@@ -30,6 +30,7 @@ window.MM_EVENTS = [
     slug: 'pool-party',
     title: 'End of Summer Pool Party',
     ministry: 'Youth Ministry',
+    status: 'Postponed',
     tagline: 'Food, fellowship, and a send-off to summer',
     date: '2026-08-08',
     dateLabel: 'Saturday, August 8',
@@ -39,6 +40,7 @@ window.MM_EVENTS = [
     flyer: 'assets/img/events/pool-party.jpg',
     flyerSize: [1400, 933],
     body: [
+      'This event has been postponed. A new date will be announced soon, so watch this page and our social media for the update.',
       'Our Youth Ministry is closing out the summer with an afternoon in the water. Food will be served, so come hungry and ready for fellowship.'
     ],
     details: [

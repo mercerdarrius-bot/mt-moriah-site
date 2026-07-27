@@ -67,6 +67,14 @@
     eyebrow.append(document.createTextNode(e.ministry));
     body.appendChild(eyebrow);
 
+    if (e.status) {
+      const flag = document.createElement('p');
+      flag.className = 'ev-status';
+      flag.textContent = e.status;
+      body.appendChild(flag);
+      art.classList.add('ev-card--flagged');
+    }
+
     const h = document.createElement('h3');
     h.className = 'ev-title';
     h.textContent = e.title;
@@ -122,6 +130,7 @@
       const actions = document.createElement('div');
       actions.className = 'ev-actions';
 
+      /* A postponed event has no firm date yet, so only directions are offered */
       const cal = document.createElement('a');
       cal.className = 'btn btn-red';
       cal.href = gcalUrl(e);
@@ -136,7 +145,7 @@
       map.rel = 'noopener';
       map.textContent = 'Get Directions';
 
-      actions.append(cal, map);
+      if (e.status) { actions.append(map); } else { actions.append(cal, map); }
       body.appendChild(actions);
     }
 
