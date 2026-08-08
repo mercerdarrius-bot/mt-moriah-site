@@ -52,11 +52,15 @@
     }));
   }
 
-  /* AJAX form helper. Submissions deliver through Web3Forms to whichever
-     inbox the access key below was created for. To change the receiving
-     email later, create a new key for the new address at web3forms.com and
-     replace this one value; nothing else on the site needs to change. */
-  window.MM_WEB3FORMS_KEY = 'REPLACE_WITH_WEB3FORMS_ACCESS_KEY';
+  /* AJAX form helper. Submissions deliver through Web3Forms, and each form
+     carries its own access key so the two can route to different inboxes.
+     A key is bound to the address it was created for, so changing where a
+     form delivers means minting a new key at web3forms.com for the new
+     address and replacing that one value below. */
+  window.MM_FORM_KEYS = {
+    visit: 'e99cf1d8-0596-4ae7-b5a8-eeda40faf6ff',
+    serve: '3e0252b7-c751-4479-8d1f-b2d5492517a3'
+  };
 
   window.mmWireForm = function (opts) {
     const form = opts.form;
@@ -73,7 +77,7 @@
         submitBtn.textContent = 'Sending...';
       }
       const data = Object.fromEntries(new FormData(form).entries());
-      data.access_key = window.MM_WEB3FORMS_KEY;
+      data.access_key = opts.accessKey;
       data.subject = opts.subject(data);
       data.from_name = 'Mount Moriah Website';
       try {

@@ -420,6 +420,7 @@
 
     window.mmWireForm({
       form: serveForm,
+      accessKey: window.MM_FORM_KEYS.serve,
       errorEl: serveError,
       subject: d => 'Ministry Interest: ' + d.ministry,
       onSuccess: d => {
