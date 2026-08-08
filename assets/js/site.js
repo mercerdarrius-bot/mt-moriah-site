@@ -52,10 +52,11 @@
     }));
   }
 
-  /* AJAX form helper. Submissions relay through FormSubmit to the church
-     office inbox. FormSubmit sends a one-time activation email on the very
-     first submission that the office must confirm before mail flows. */
-  window.MM_ADMIN_EMAIL = 'moriahmb902@gmail.com';
+  /* AJAX form helper. Submissions deliver through Web3Forms to whichever
+     inbox the access key below was created for. To change the receiving
+     email later, create a new key for the new address at web3forms.com and
+     replace this one value; nothing else on the site needs to change. */
+  window.MM_WEB3FORMS_KEY = 'REPLACE_WITH_WEB3FORMS_ACCESS_KEY';
 
   window.mmWireForm = function (opts) {
     const form = opts.form;
@@ -72,15 +73,17 @@
         submitBtn.textContent = 'Sending...';
       }
       const data = Object.fromEntries(new FormData(form).entries());
-      data._subject = opts.subject(data);
-      data._template = 'table';
+      data.access_key = window.MM_WEB3FORMS_KEY;
+      data.subject = opts.subject(data);
+      data.from_name = 'Mount Moriah Website';
       try {
-        const res = await fetch('https://formsubmit.co/ajax/' + window.MM_ADMIN_EMAIL, {
+        const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(data)
         });
-        if (!res.ok) throw new Error('send failed');
+        const result = await res.json();
+        if (!res.ok || !result.success) throw new Error('send failed');
         opts.onSuccess(data);
       } catch (err) {
         if (errorEl) errorEl.hidden = false;
