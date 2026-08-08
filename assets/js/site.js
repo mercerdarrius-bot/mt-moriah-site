@@ -58,8 +58,8 @@
      form delivers means minting a new key at web3forms.com for the new
      address and replacing that one value below. */
   window.MM_FORM_KEYS = {
-    visit: 'e99cf1d8-0596-4ae7-b5a8-eeda40faf6ff',
-    serve: '3e0252b7-c751-4479-8d1f-b2d5492517a3'
+    visit: '6f299fe4-ae58-4020-9e36-64f2b0b2c704',
+    serve: 'a9ca769f-a502-4500-94d7-6796ebad1ab7'
   };
 
   window.mmWireForm = function (opts) {
