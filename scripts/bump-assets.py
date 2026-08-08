@@ -20,7 +20,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ASSET = re.compile(r'((?:href|src)="assets/(?:css|js)/[a-z0-9-]+\.(?:css|js))(?:\?v=[0-9]+)?"')
+# The leading slash is optional: 404.html uses root-relative paths because
+# GitHub Pages serves it for unmatched paths at any depth.
+ASSET = re.compile(r'((?:href|src)="/?assets/(?:css|js)/[a-z0-9-]+\.(?:css|js))(?:\?v=[0-9]+)?"')
 
 
 def main():
