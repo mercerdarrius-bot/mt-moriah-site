@@ -27,32 +27,10 @@ window.MM_EVENTS = [
     ]
   },
   {
-    slug: 'pool-party',
-    title: 'End of Summer Pool Party',
-    ministry: 'Youth Ministry',
-    status: 'Postponed',
-    tagline: 'Food, fellowship, and a send-off to summer',
-    date: '2026-08-08',
-    dateLabel: 'Saturday, August 8',
-    timeLabel: '2:00 PM to 6:00 PM',
-    venue: 'Private residence',
-    address: '32711 Windelstraw Dr, Wesley Chapel, FL 33545',
-    flyer: 'assets/img/events/pool-party.jpg',
-    flyerSize: [1400, 933],
-    body: [
-      'This event has been postponed. A new date will be announced soon, so watch this page and our social media for the update.',
-      'Our Youth Ministry is closing out the summer with an afternoon in the water. Food will be served, so come hungry and ready for fellowship.'
-    ],
-    details: [
-      { label: 'Bring', value: 'A towel, sunscreen, and appropriate swimwear' },
-      { label: 'Safety', value: 'Bring a life vest if needed' },
-      { label: 'RSVP', value: 'RSVP to Sis. Mechelle Keith by July 26' }
-    ]
-  },
-  {
     slug: 'preaching-in-the-park',
     title: 'Preaching in the Park',
     ministry: 'Churchwide Fellowship',
+    status: 'Postponed',
     tagline: 'Two churches. One fellowship. One Spirit.',
     date: '2026-08-23',
     dateLabel: 'Sunday, August 23',
@@ -62,6 +40,7 @@ window.MM_EVENTS = [
     flyer: 'assets/img/events/preaching-in-the-park.jpg',
     flyerSize: [1400, 934],
     body: [
+      'This event has been postponed. A new date will be announced soon, so watch this page and our social media for the update.',
       'Mount Moriah MBC of Plant City and St. John MBC of Dade City are coming together for a powerful outdoor worship experience as two sister churches unite in love and praise.',
       'Pastor Montgomery and Pastor Butler will both share the Word. Bring your portable chairs and come fellowship with us.'
     ],

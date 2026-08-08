@@ -174,7 +174,7 @@
     fresh.forEach(el => el.classList.add('is-revealed'));
   }
 
-  /* Honor a deep link like /events#pool-party now that the cards exist.
+  /* Honor a deep link like /events#self-care-saturday now that the cards exist.
      The jump is instant rather than smooth so it cannot be interrupted, and it
      repeats once every flyer has loaded because lazy images change the offsets
      underneath the first attempt. */
