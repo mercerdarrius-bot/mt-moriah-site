@@ -1,8 +1,8 @@
 /* Single source of truth for church events. The homepage calendar and the
    events page both read this list, so a new event only has to be added once.
    `date` is the event day in YYYY-MM-DD; `endDate` is optional for multi-day
-   events. Everything sorts and filters off those dates, so past events move
-   themselves without anyone editing the page. */
+   events. Everything sorts and filters off those dates, so an event drops off
+   the site on its own once its date has passed. */
 
 window.MM_EVENTS = [
   {
@@ -116,11 +116,5 @@ window.MM_EVENT_UTILS = {
     return window.MM_EVENTS
       .filter(e => this.parse(e.endDate || e.date) >= t)
       .sort((a, b) => this.parse(a.date) - this.parse(b.date));
-  },
-  past: function () {
-    const t = this.today();
-    return window.MM_EVENTS
-      .filter(e => this.parse(e.endDate || e.date) < t)
-      .sort((a, b) => this.parse(b.date) - this.parse(a.date));
   }
 };

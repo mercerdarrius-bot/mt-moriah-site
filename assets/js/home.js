@@ -27,8 +27,10 @@
     let viewYear = anchor.getFullYear();
     let viewMonth = anchor.getMonth();
 
+    /* Only upcoming events are marked, matching the events page, where an
+       event disappears once its date has passed. */
     const byDay = {};
-    window.MM_EVENTS.forEach(e => {
+    upcoming.forEach(e => {
       const d = U.parse(e.date);
       byDay[d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate()] = e;
     });
@@ -59,15 +61,13 @@
         const ev = byDay[key];
         const cellDate = new Date(viewYear, viewMonth, day, 12, 0, 0);
         const isToday = cellDate.getTime() === today.getTime();
-        const isPast = cellDate < today;
 
         let cell;
         if (ev) {
           cell = document.createElement('a');
-          cell.href = 'events.html#' + ev.slug;
+          cell.href = '/events#' + ev.slug;
           cell.className = 'cal-day cal-day--event';
           cell.setAttribute('aria-label', day + ' ' + MONTHS[viewMonth] + ', ' + ev.title);
-          if (isPast) cell.classList.add('is-past');
         } else {
           cell = document.createElement('span');
           cell.className = 'cal-day';
@@ -113,7 +113,7 @@
           const d = U.parse(e.date);
           const a = document.createElement('a');
           a.className = 'up-item';
-          a.href = 'events.html#' + e.slug;
+          a.href = '/events#' + e.slug;
           a.innerHTML =
             '<span class="up-date"><span class="up-mon">' + MONTHS[d.getMonth()].slice(0, 3) +
             '</span><span class="up-day">' + d.getDate() + '</span></span>' +

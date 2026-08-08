@@ -1,14 +1,12 @@
 /* Renders the events page from assets/js/events-data.js so adding an event
-   only means editing that one file. Upcoming events render in date order and
-   anything past moves itself into the archive section below. */
+   only means editing that one file. Only upcoming events render; anything
+   whose date has passed drops off the page on its own. */
 
 (function () {
   'use strict';
 
   const U = window.MM_EVENT_UTILS;
   const upcomingWrap = document.getElementById('events-upcoming');
-  const pastWrap = document.getElementById('events-past');
-  const pastSection = document.getElementById('past-section');
   if (!upcomingWrap) return;
 
   function gcalUrl(e) {
@@ -38,9 +36,9 @@
     return row;
   }
 
-  function card(e, isPast) {
+  function card(e) {
     const art = document.createElement('article');
-    art.className = 'ev-card' + (isPast ? ' ev-card--past' : '');
+    art.className = 'ev-card';
     art.id = e.slug;
     art.setAttribute('data-reveal', '');
 
@@ -126,11 +124,11 @@
       body.appendChild(dl);
     }
 
-    if (!isPast) {
-      const actions = document.createElement('div');
-      actions.className = 'ev-actions';
+    const actions = document.createElement('div');
+    actions.className = 'ev-actions';
 
-      /* A postponed event has no firm date yet, so only directions are offered */
+    /* A postponed event has no firm date yet, so only directions are offered */
+    {
       const cal = document.createElement('a');
       cal.className = 'btn btn-red';
       cal.href = gcalUrl(e);
@@ -154,7 +152,6 @@
   }
 
   const upcoming = U.upcoming();
-  const past = U.past();
 
   if (!upcoming.length) {
     const empty = document.createElement('p');
@@ -162,13 +159,7 @@
     empty.textContent = 'There are no events on the calendar right now. Join us for worship every Sunday at 11:00 AM, and check back soon.';
     upcomingWrap.appendChild(empty);
   } else {
-    upcoming.forEach(e => upcomingWrap.appendChild(card(e, false)));
-  }
-
-  if (past.length && pastWrap) {
-    past.forEach(e => pastWrap.appendChild(card(e, true)));
-  } else if (pastSection) {
-    pastSection.hidden = true;
+    upcoming.forEach(e => upcomingWrap.appendChild(card(e)));
   }
 
   /* The cards are built after site.js wired its observer, so reveal them here. */
@@ -183,7 +174,7 @@
     fresh.forEach(el => el.classList.add('is-revealed'));
   }
 
-  /* Honor a deep link like events.html#pool-party now that the cards exist.
+  /* Honor a deep link like /events#pool-party now that the cards exist.
      The jump is instant rather than smooth so it cannot be interrupted, and it
      repeats once every flyer has loaded because lazy images change the offsets
      underneath the first attempt. */

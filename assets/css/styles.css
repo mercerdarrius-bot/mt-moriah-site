@@ -1506,8 +1506,6 @@ body.modal-open { overflow: hidden; }
 
 .cal-day--event:hover { background: var(--red-bright); transform: translateY(-2px); }
 
-.cal-day--event.is-past { background: rgba(11, 10, 10, 0.18); color: #fff; }
-
 .cal-dot {
   position: absolute;
   bottom: 5px;
@@ -2279,23 +2277,6 @@ body.modal-open { overflow: hidden; }
 .ev-noscript ul { margin: 14px 0 0 20px; }
 .ev-noscript li { margin-bottom: 10px; }
 
-.ev-past { background: var(--ink); color: var(--paper); padding: clamp(72px, 11vh, 120px) 0; }
-
-.ev-past[hidden] { display: none; }
-
-.ev-past-head { max-width: 700px; margin-bottom: clamp(32px, 5vh, 52px); }
-
-.ev-past .ev-card { border-top-color: rgba(255, 255, 255, 0.14); }
-.ev-past .ev-title { font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
-.ev-past .ev-tagline { color: var(--red-bright); font-size: 0.98rem; }
-.ev-past .ev-meta { background: var(--ink-soft); }
-.ev-past .ev-meta-label { color: var(--red-bright); }
-.ev-past .ev-text { color: rgba(255, 255, 255, 0.72); }
-.ev-past .ev-details li { border-top-color: rgba(255, 255, 255, 0.12); }
-.ev-past .ev-details strong { color: #fff; }
-.ev-past .ev-scripture p { color: rgba(255, 255, 255, 0.9); }
-
-.ev-card--past .ev-media { opacity: 0.82; }
 
 /* ---------- Scroll reveal ---------- */
 
