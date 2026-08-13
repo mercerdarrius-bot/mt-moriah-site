@@ -616,6 +616,25 @@ a { color: inherit; text-decoration: none; }
 
 .pastor-text p:not(.eyebrow):not(.lead) { font-size: 1.02rem; line-height: 1.75; color: #4a4441; margin-bottom: 16px; }
 
+.pastor-role {
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 24px;
+}
+
+.pastor-family {
+  background: var(--bone);
+  border-top: 4px solid var(--red);
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-top: 28px;
+}
+
+.pastor-family p { margin-bottom: 0; font-weight: 600; }
+
 .welcome-home {
   margin-top: 26px;
   font-weight: 900;
