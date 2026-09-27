@@ -51,17 +51,39 @@ window.MM_EVENTS = [
     ]
   },
   {
+    slug: 'family-friends-day',
+    title: 'Family & Friends Day',
+    ministry: 'Churchwide Celebration',
+    tagline: 'Celebrate. Support. Encourage. Never give up.',
+    date: '2026-10-04',
+    dateLabel: 'Sunday, October 4',
+    timeLabel: 'Sunday School at 10:00 AM, Worship Service at 11:00 AM',
+    venue: 'Mount Moriah Missionary Baptist Church',
+    address: '902 E Alabama St, Plant City, FL 33563',
+    flyer: 'assets/img/events/family-friends-day.jpg',
+    flyerSize: [1400, 933],
+    body: [
+      'Bring your family, bring your friends, and come worship with us. Family and Friends Day is the day we open our doors wide and gather as one fellowship, one Spirit, one mission.',
+      'This year we are honoring cancer survivors. Survivors are a testimony of God\'s faithfulness, and we are setting this day apart to celebrate them, encourage them, and stand with every family still in the fight.'
+    ],
+    details: [
+      { label: 'Wear', value: 'Pink, purple, or white as we stand together in support' },
+      { label: 'Who', value: 'All are welcome here' },
+      { label: 'Cost', value: 'Free' }
+    ]
+  },
+  {
     slug: 'self-care-saturday',
     title: 'Self Care Saturday 2026',
     ministry: 'Women of the Word',
     tagline: 'Find your people, with a loving perspective',
-    date: '2026-09-26',
-    dateLabel: 'Saturday, September 26',
+    date: '2026-11-07',
+    dateLabel: 'Saturday, November 7',
     timeLabel: '12:00 PM to 3:00 PM, doors open at 11:00 AM',
     venue: 'Mount Moriah Missionary Baptist Church',
     address: '902 E Alabama St, Plant City, FL 33563',
     flyer: 'assets/img/events/self-care-saturday.jpg',
-    flyerSize: [1400, 937],
+    flyerSize: [1400, 933],
     scripture: {
       text: 'Be devoted to one another in love. Honor one another above yourselves.',
       ref: 'Romans 12:10, NIV'
@@ -71,7 +93,7 @@ window.MM_EVENTS = [
       'Lunch will be provided, along with food, fun, fellowship, and giveaways.'
     ],
     details: [
-      { label: 'Tickets', value: '$40, available through September 13' },
+      { label: 'Tickets', value: '$35 cash or $40 online' },
       { label: 'Seating', value: 'Limited, capped at 150 people' },
       { label: 'Parking', value: 'Limited, carpooling encouraged' },
       { label: 'Members', value: 'Sell 5 or more tickets and receive a complimentary ticket' }
