@@ -24,10 +24,8 @@
   <meta name="twitter:description" content="Mount Moriah Missionary Baptist Church in Plant City, Florida. Join us for worship Sundays at 11 AM. 902 E Alabama St, Plant City, FL 33563.">
   <meta name="twitter:image" content="https://mountmoriahmbc.com/assets/img/hero-poster.jpg">
   <link rel="icon" type="image/png" href="assets/brand/mark-red.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=202610101944">
+  <link rel="preload" href="/assets/fonts/archivo-roman-latin.3ccd4df4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css?v=202610102145">
 </head>
 <body>
 
@@ -67,8 +65,8 @@
 
   <div class="hero-frame">
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg" aria-hidden="true">
-      <source src="assets/video/hero.mp4" type="video/mp4">
+    <video class="hero-video" autoplay muted loop playsinline preload="none" poster="assets/img/hero-poster.jpg" aria-hidden="true">
+      <source data-src="assets/video/hero.mp4" type="video/mp4">
     </video>
     <div class="hero-shade" aria-hidden="true"></div>
 
@@ -120,7 +118,7 @@
       <div class="about-grid">
         <article class="about-card" data-reveal>
           <a class="about-card-media" href="/about#history" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/congregation.jpg" alt="" loading="lazy">
+            <img src="assets/img/congregation.jpg" srcset="assets/img/congregation-700.jpg 700w, assets/img/congregation.jpg 1102w" sizes="(max-width: 920px) calc(100vw - 40px), 506px" alt="" loading="lazy">
           </a>
           <p class="eyebrow eyebrow--small"><span class="tick" aria-hidden="true"></span>Our History</p>
           <h3>A legacy of faith</h3>
@@ -129,7 +127,7 @@
         </article>
         <article class="about-card" data-reveal>
           <a class="about-card-media" href="/about#pastor" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/pastor-firstlady.jpg" alt="" loading="lazy">
+            <img src="assets/img/pastor-firstlady.jpg" srcset="assets/img/pastor-firstlady-700.jpg 700w, assets/img/pastor-firstlady-1100.jpg 1100w, assets/img/pastor-firstlady.jpg 1600w" sizes="(max-width: 920px) calc(100vw - 40px), 506px" alt="" loading="lazy">
           </a>
           <p class="eyebrow eyebrow--small"><span class="tick" aria-hidden="true"></span>Our Shepherds</p>
           <h3>Meet our Pastor &amp; First Lady</h3>
@@ -184,7 +182,7 @@
       <div class="sermon-player" data-reveal>
         <div class="player-frame">
           <iframe
-            src="https://www.youtube-nocookie.com/embed/videoseries?list=UUrfC6KdaZUdFrcIHmtJ0DbA&amp;rel=0&amp;enablejsapi=1&amp;origin=https://mountmoriahmbc.com"
+            data-src="https://www.youtube-nocookie.com/embed/videoseries?list=UUrfC6KdaZUdFrcIHmtJ0DbA&amp;rel=0&amp;enablejsapi=1&amp;origin=https://mountmoriahmbc.com"
             title="Most recent service from Mount Moriah Missionary Baptist Church"
             loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -209,7 +207,8 @@
           <div class="reel">
             <video
               controls
-              preload="metadata"
+              preload="none"
+              data-preload="metadata"
               playsinline
               poster="assets/img/sunday-reflection-poster.jpg"
               width="480" height="854">
@@ -527,8 +526,8 @@
     </div>
   </footer>
 
-  <script src="assets/js/site.js?v=202610101944"></script>
-  <script src="assets/js/events-data.js?v=202610101944"></script>
-  <script src="assets/js/home.js?v=202610101944"></script>
+  <script src="assets/js/site.js?v=202610102145"></script>
+  <script src="assets/js/events-data.js?v=202610102145"></script>
+  <script src="assets/js/home.js?v=202610102145"></script>
 </body>
 </html>

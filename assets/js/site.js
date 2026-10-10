@@ -24,15 +24,54 @@
     revealables.forEach(el => el.classList.add('is-revealed'));
   }
 
-  /* Hero video: Safari and low-power mode sometimes ignore the autoplay
-     attribute, so nudge playback on load, tab focus, and first interaction. */
+  /* Hero video: it loads once the page has (the poster shows until then, as it
+     always has), so a phone spends its first second on the page, not the
+     video. Reduced motion never shows it, so never loads it. Safari and
+     low-power mode sometimes ignore the autoplay attribute, so nudge playback
+     on load, tab focus, and first interaction. */
   const heroVideo = document.querySelector('.hero-video');
   if (heroVideo && !reduceMotion) {
     const nudge = () => heroVideo.play().catch(() => {});
-    nudge();
+    const start = () => {
+      heroVideo.querySelectorAll('source[data-src]').forEach(s => {
+        s.src = s.getAttribute('data-src');
+        s.removeAttribute('data-src');
+      });
+      heroVideo.load();
+      nudge();
+    };
+    if (document.readyState === 'complete') start();
+    else window.addEventListener('load', start, { once: true });
     document.addEventListener('visibilitychange', nudge);
     window.addEventListener('pointerdown', nudge, { once: true });
   }
+
+  /* Players further down load as they near the screen instead of with the
+     page: each is in place well before it scrolls into view. */
+  const whenNear = (el, fn) => {
+    if (!('IntersectionObserver' in window)) return fn();
+    const io = new IntersectionObserver(entries => {
+      if (entries.some(e => e.isIntersecting)) { io.disconnect(); fn(); }
+    }, { rootMargin: '800px 0px' });
+    io.observe(el);
+  };
+  document.querySelectorAll('iframe[data-src]').forEach(frame => whenNear(frame, () => {
+    frame.src = frame.getAttribute('data-src');
+    frame.removeAttribute('data-src');
+    // Merx Analytics counts sermon plays with its YouTube module, which the
+    // tracker loads only for players already on the page at load. Load it here.
+    if (!/enablejsapi=1/.test(frame.src)) return;
+    if (window.__mxY) { if (window.__mxYReset) window.__mxYReset(); return; }
+    window.__mxY = 1;
+    const y = document.createElement('script');
+    y.src = 'https://a.merxstudios.com/y.js';
+    y.defer = true;
+    document.head.appendChild(y);
+  }));
+  document.querySelectorAll('video[data-preload]').forEach(video => whenNear(video, () => {
+    video.preload = video.getAttribute('data-preload');
+    video.removeAttribute('data-preload');
+  }));
 
   /* Mobile nav */
   const toggle = document.querySelector('.nav-toggle');
