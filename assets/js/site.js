@@ -88,6 +88,9 @@
         });
         const result = await res.json();
         if (!res.ok || !result.success) throw new Error('send failed');
+        /* Merx Analytics counts the form once, only after it really sent
+           (never what was written in it). */
+        if (window.mx && opts.mxForm) window.mx('event', 'form_submit', { form: opts.mxForm });
         opts.onSuccess(data);
       } catch (err) {
         if (errorEl) errorEl.hidden = false;

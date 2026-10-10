@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Merx Analytics: cookieless and first party (see /privacy). Plain tags on purpose:
+       the daily tag check reads the served HTML. -->
+  <script>window.mx=window.mx||function(){(window.mx.q=window.mx.q||[]).push(arguments)}</script>
+  <script defer src="https://a.merxstudios.com/m.js" data-site="nnr5h1ox2sj6qzli"></script>
   <title>Ministries | Mount Moriah Missionary Baptist Church</title>
   <meta name="description" content="Explore the ministries of Mount Moriah Missionary Baptist Church in Plant City, Florida: Next Gen Youth, Deacon's Ministry, Women of the Word, Music Ministry, and more.">
   <meta name="theme-color" content="#ffffff">
@@ -23,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=202609270053">
+  <link rel="stylesheet" href="assets/css/styles.css?v=202610101944">
 </head>
 <body>
 
@@ -283,7 +287,7 @@
       <h2 class="cta-title">Find your place to serve<span class="dot">.</span></h2>
       <p class="cta-sub">Every ministry at Mount Moriah is an open door. Come worship with us and discover where you fit.</p>
       <div class="cta-actions">
-        <a class="btn btn-ink btn-lg" href="/#visit">Plan Your Visit</a>
+        <a class="btn btn-ink btn-lg" href="/#visit" data-mx-event="plan_visit_click">Plan Your Visit</a>
         <a class="btn btn-ghost btn-lg" href="/leadership">Meet Our Leadership</a>
       </div>
     </div>
@@ -306,6 +310,7 @@
       <div class="footer-links">
         <a href="https://www.facebook.com/moriah.baptist.33" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@Mountmoriahmbcplantcity" target="_blank" rel="noopener">YouTube</a>
+        <a href="/privacy">Privacy</a>
       </div>
     </div>
     <div class="footer-credit">
@@ -385,7 +390,7 @@
     </div>
   </div>
 
-  <script src="assets/js/site.js?v=202609270053"></script>
+  <script src="assets/js/site.js?v=202610101944"></script>
   <script>
     /* Serve-interest modal. The form relays through the shared helper in
        site.js to the church office inbox. */
@@ -433,6 +438,7 @@
 
     window.mmWireForm({
       form: serveForm,
+      mxForm: 'serve',
       accessKey: window.MM_FORM_KEYS.serve,
       errorEl: serveError,
       subject: d => 'Ministry Interest: ' + d.ministry,

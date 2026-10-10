@@ -22,7 +22,7 @@
     const media = card.querySelector('.sc-media');
     const frame = document.createElement('iframe');
     frame.src = 'https://www.youtube-nocookie.com/embed/' + sermon.id +
-      '?autoplay=1&rel=0';
+      '?autoplay=1&rel=0&enablejsapi=1&origin=' + encodeURIComponent(location.origin);
     frame.title = sermon.title;
     frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     frame.referrerPolicy = 'strict-origin-when-cross-origin';
